@@ -18,7 +18,12 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/hockeyNews", { useNewUrlParser: true });
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/hockeyNews";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
+
+// mongoose.connect("mongodb://localhost/hockeyNews", { useNewUrlParser: true });
 
 // Routes
 
