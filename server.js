@@ -7,6 +7,8 @@ const cheerio = require("cheerio");
 
 const db = require("./models");
 
+// remember to use process.env.PORT because 3000 is probably already in use
+
 const PORT = process.env.PORT || 3000;
 
 const app = express();
