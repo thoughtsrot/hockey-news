@@ -7,7 +7,7 @@ const cheerio = require("cheerio");
 
 const db = require("./models");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -40,6 +40,7 @@ app.get("/scrape", function(req, res) {
 
       let link = $(this)
       .attr("data-url");
+      
       articleData.link = `https://www.nhl.com${link}` 
 
       db.Article.create(articleData)
